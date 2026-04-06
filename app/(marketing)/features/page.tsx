@@ -205,6 +205,7 @@ export default function FeaturesPage() {
                   alt={feature.screenshotAlt}
                   width={1280}
                   height={800}
+                  loading="lazy"
                   className="w-full h-auto"
                 />
               </motion.div>
