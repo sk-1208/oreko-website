@@ -1,0 +1,14 @@
+export { MarketingHeader } from './marketing-header';
+export { HeroSection } from './hero-section';
+export { TrustSection } from './trust-section';
+export { ProblemSection } from './problem-section';
+export { SolutionSection } from './solution-section';
+export { FeaturesSection } from './features-section';
+export { ComparisonSection } from './comparison-section';
+export { TestimonialsSection } from './testimonials-section';
+export { PricingSection } from './pricing-section';
+export { OpenSourceSection } from './open-source-section';
+export { FaqSection } from './faq-section';
+export { CtaSection } from './cta-section';
+export { MarketingFooter } from './marketing-footer';
+export { DotBackground } from './dot-background';
