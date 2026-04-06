@@ -103,14 +103,14 @@ const jsonLd = {
       price: '10',
       priceCurrency: 'USD',
       name: 'Pro',
-      description: '500 documents/mo, managed hosting, priority support',
+      description: '100 documents/mo, managed hosting, priority support',
     },
     {
       '@type': 'Offer',
       price: '24',
       priceCurrency: 'USD',
       name: 'Business',
-      description: '2,000 documents/mo, 5 team members, API access',
+      description: '250 documents/mo, 5 team members, API access',
     },
   ],
   author: {

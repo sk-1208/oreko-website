@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Check, X, Minus, ChevronDown } from 'lucide-react';
+import { Check, X, Minus, ChevronDown, Info } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { SpotlightCard } from '@/components/ui/spotlight-card';
 
@@ -43,13 +43,13 @@ const plans = [
     annualPrice: '$10',
     period: '/mo',
     annualPeriod: '/mo',
-    documents: '500 docs/mo',
+    documents: '100 docs/mo',
     description: 'We handle the servers. You handle the business.',
     cta: 'Start free trial',
     ctaHref: '/register',
     highlighted: true,
     features: [
-      '500 documents per month',
+      '100 documents per month',
       'Unlimited clients',
       'Everything in Free',
       'Managed hosting & backups',
@@ -68,13 +68,13 @@ const plans = [
     annualPrice: '$24',
     period: '/mo',
     annualPeriod: '/mo',
-    documents: '2,000 docs/mo',
+    documents: '250 docs/mo',
     description: 'For growing teams that need collaboration.',
     cta: 'Start free trial',
     ctaHref: '/register',
     highlighted: false,
     features: [
-      '2,000 documents per month',
+      '250 documents per month',
       'Up to 5 team members',
       'Everything in Pro',
       'Advanced analytics & reports',
@@ -124,7 +124,7 @@ const comparisonCategories: {
   {
     category: 'Documents & Limits',
     rows: [
-      { feature: 'Monthly documents (invoices + quotes + contracts)', values: ['Unlimited', '500', '2,000', 'Unlimited'] },
+      { feature: 'Monthly documents (invoices + quotes + contracts)', values: ['Unlimited', '100', '250', 'Custom'] },
       { feature: 'Clients', values: ['Unlimited', 'Unlimited', 'Unlimited', 'Unlimited'] },
       { feature: 'Team members', values: ['1', '1', 'Up to 5', 'Unlimited'] },
     ],
@@ -214,6 +214,43 @@ const faqs = [
 /* ──────────────────────────────────────────────────────────────
    HELPERS
    ────────────────────────────────────────────────────────────── */
+
+function DocumentTooltip() {
+  const [show, setShow] = useState(false);
+
+  return (
+    <span className="relative inline-flex">
+      <button
+        onMouseEnter={() => setShow(true)}
+        onMouseLeave={() => setShow(false)}
+        onClick={() => setShow(!show)}
+        className="ml-1.5 text-muted-foreground hover:text-foreground transition-colors"
+        aria-label="What counts as a document?"
+      >
+        <Info className="h-3.5 w-3.5" />
+      </button>
+      <AnimatePresence>
+        {show && (
+          <motion.div
+            initial={{ opacity: 0, y: 4 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 4 }}
+            transition={{ duration: 0.15 }}
+            className="absolute left-0 top-full mt-2 z-50 w-52 rounded-lg border border-border bg-background p-3 shadow-lg text-xs text-muted-foreground leading-relaxed"
+          >
+            <p>
+              <span className="font-medium text-foreground">
+                Documents = invoices + quotes + contracts
+              </span>{' '}
+              combined. Each one you create counts as 1 document. Drafts count
+              once saved. Resets every billing cycle.
+            </p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </span>
+  );
+}
 
 function CellValue({ value }: { value: CellValue }) {
   if (value === true) return <Check className="h-4 w-4 text-success mx-auto" />;
@@ -337,6 +374,7 @@ export default function PricingPage() {
 
             <div className="mt-3 inline-flex items-center text-xs font-medium text-foreground bg-muted px-2.5 py-1 rounded-md">
               {plan.documents}
+              <DocumentTooltip />
             </div>
 
             <p className="mt-3 text-sm text-muted-foreground">{plan.description}</p>
