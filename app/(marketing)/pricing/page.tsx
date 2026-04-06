@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { Check, X, Minus, ChevronDown, Info } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
@@ -217,37 +218,72 @@ const faqs = [
 
 function DocumentTooltip() {
   const [show, setShow] = useState(false);
+  const [pos, setPos] = useState<{ top: number; left: number } | null>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const tooltipRef = useRef<HTMLDivElement>(null);
+
+  const updatePos = useCallback(() => {
+    if (!buttonRef.current) return;
+    const rect = buttonRef.current.getBoundingClientRect();
+    const tooltipWidth = 220;
+    let left = rect.left + rect.width / 2 - tooltipWidth / 2;
+    left = Math.max(8, Math.min(left, window.innerWidth - tooltipWidth - 8));
+    setPos({ top: rect.top - 10, left });
+  }, []);
+
+  useEffect(() => {
+    if (!show) return;
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        buttonRef.current && !buttonRef.current.contains(e.target as Node) &&
+        tooltipRef.current && !tooltipRef.current.contains(e.target as Node)
+      ) {
+        setShow(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [show]);
+
+  const handleClick = () => {
+    if (!show) updatePos();
+    setShow(prev => !prev);
+  };
 
   return (
     <span className="relative inline-flex">
       <button
-        onMouseEnter={() => setShow(true)}
-        onMouseLeave={() => setShow(false)}
-        onClick={() => setShow(!show)}
+        ref={buttonRef}
+        onClick={handleClick}
         className="ml-1.5 text-muted-foreground hover:text-foreground transition-colors"
         aria-label="What counts as a document?"
+        type="button"
       >
         <Info className="h-3.5 w-3.5" />
       </button>
-      <AnimatePresence>
-        {show && (
-          <motion.div
-            initial={{ opacity: 0, y: 4 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 4 }}
-            transition={{ duration: 0.15 }}
-            className="absolute left-0 top-full mt-2 z-50 w-52 rounded-lg border border-border bg-background p-3 shadow-lg text-xs text-muted-foreground leading-relaxed"
-          >
-            <p>
-              <span className="font-medium text-foreground">
-                Documents = invoices + quotes + contracts
-              </span>{' '}
-              combined. Each one you create counts as 1 document. Drafts count
-              once saved. Resets every billing cycle.
-            </p>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {show && pos && createPortal(
+        <div
+          ref={tooltipRef}
+          style={{
+            position: 'fixed',
+            top: pos.top,
+            left: pos.left,
+            transform: 'translateY(-100%)',
+            zIndex: 99999,
+            width: 220,
+          }}
+          className="rounded-lg border border-border bg-background p-3 shadow-lg text-xs text-muted-foreground leading-relaxed"
+        >
+          <p>
+            <span className="font-medium text-foreground">
+              Documents = invoices + quotes + contracts
+            </span>{' '}
+            combined. Each one you create counts as 1 document. Drafts count
+            once saved. Resets every billing cycle.
+          </p>
+        </div>,
+        document.body
+      )}
     </span>
   );
 }
