@@ -14,7 +14,7 @@ import { SpotlightCard } from '@/components/ui/spotlight-card';
 const plans = [
   {
     name: 'Free',
-    subtitle: 'Cloud',
+    subtitle: '',
     monthlyPrice: 'Free',
     annualPrice: 'Free',
     period: 'forever',
@@ -37,7 +37,7 @@ const plans = [
   },
   {
     name: 'Pro',
-    subtitle: 'Most popular',
+    subtitle: '',
     monthlyPrice: '$14',
     annualPrice: '$10',
     period: '/mo',
@@ -390,15 +390,10 @@ export default function PricingPage() {
                 : 'oklch(0.6898 0.1101 233.96 / 0.06)'
             }
           >
-            {plan.highlighted && (
-              <span className="inline-block text-xs font-medium text-primary bg-primary/10 px-2.5 py-0.5 rounded-full mb-3">
-                {plan.subtitle}
-              </span>
-            )}
-            <h2 className="font-display text-lg font-medium text-foreground">
+            <h2 className={`font-display font-medium text-foreground ${plan.highlighted ? 'text-xl' : 'text-lg'}`}>
               {plan.name}
             </h2>
-            {!plan.highlighted && plan.subtitle && (
+            {plan.subtitle && (
               <p className="text-xs text-muted-foreground mt-0.5">{plan.subtitle}</p>
             )}
 
