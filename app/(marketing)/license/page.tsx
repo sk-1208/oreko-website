@@ -17,7 +17,7 @@ export default function LicensePage() {
 
         <div className="mt-12 space-y-10 text-sm text-muted-foreground leading-relaxed">
           <p>
-            Copyright (C) 2026 WisdmLabs, Oreko (oreko.app). This program is
+            Copyright (C) 2026 Infinite Wisdm FZ LLC, Oreko (oreko.app). This program is
             free software licensed under the GNU Affero General Public License
             v3.
           </p>
@@ -27,7 +27,7 @@ export default function LicensePage() {
               Important Notice
             </h2>
             <p className="mt-2 text-warning/80">
-              This document is WisdmLabs&rsquo; Oreko-specific summary and
+              This document is Infinite Wisdm FZ LLC&rsquo; Oreko-specific summary and
               application guide for the AGPL v3. It is NOT the licence itself.
               The legally binding licence text is the official GNU Affero General
               Public License, Version 3, as published by the Free Software
@@ -107,7 +107,7 @@ export default function LicensePage() {
           <Section title="Disclaimer of Warranty">
             <p className="uppercase text-xs tracking-wide">
               There is no warranty for Oreko, to the extent permitted by
-              applicable law. WisdmLabs provides the program &ldquo;as is&rdquo;
+              applicable law. Infinite Wisdm FZ LLC provides the program &ldquo;as is&rdquo;
               without warranty of any kind, either expressed or implied,
               including, but not limited to, the implied warranties of
               merchantability and fitness for a particular purpose.
@@ -116,7 +116,7 @@ export default function LicensePage() {
 
           <Section title="Limitation of Liability">
             <p className="uppercase text-xs tracking-wide">
-              In no event unless required by applicable law will WisdmLabs be
+              In no event unless required by applicable law will Infinite Wisdm FZ LLC be
               liable for damages, including any general, special, incidental or
               consequential damages arising out of the use or inability to use
               the program, even if advised of the possibility of such damages.

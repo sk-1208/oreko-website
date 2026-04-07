@@ -24,7 +24,7 @@ export default function TermsPage() {
           <Section title="1. Who These Terms Apply To">
             <p>
               These Terms of Service (&ldquo;Terms&rdquo;) are a legal agreement
-              between you (&ldquo;User&rdquo;, &ldquo;you&rdquo;) and WisdmLabs
+              between you (&ldquo;User&rdquo;, &ldquo;you&rdquo;) and Infinite Wisdm FZ LLC
               (&ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;), the
               company that owns and operates Oreko at oreko.app.
             </p>
@@ -55,7 +55,7 @@ export default function TermsPage() {
                 credentials.
               </li>
               <li>
-                You must notify us immediately at support@wisdmlabs.com if you
+                You must notify us immediately at support@oreko.app if you
                 suspect unauthorised access to your account.
               </li>
               <li>
@@ -96,7 +96,7 @@ export default function TermsPage() {
           <Section title="5. Your Data">
             <p>
               You own all data you submit to Oreko. By using the service, you
-              grant WisdmLabs a limited, non-exclusive licence to store, process,
+              grant Infinite Wisdm FZ LLC a limited, non-exclusive licence to store, process,
               and display your data solely for the purpose of providing the
               service to you.
             </p>
@@ -141,7 +141,7 @@ export default function TermsPage() {
               First-time subscribers to any paid plan may request a full refund
               within 14 days of their initial subscription purchase, provided
               they have not substantially used the paid features during that
-              period. To request a refund, contact support@wisdmlabs.com within
+              period. To request a refund, contact support@oreko.app within
               the 14-day window.
             </p>
 
@@ -172,7 +172,7 @@ export default function TermsPage() {
           <Section title="8. Intellectual Property">
             <p>
               All intellectual property in Oreko, including the brand, design,
-              proprietary code, and documentation, belongs to WisdmLabs. These
+              proprietary code, and documentation, belongs to Infinite Wisdm FZ LLC. These
               Terms do not grant you any right to use our trademarks, logos, or
               brand name without our prior written consent.
             </p>
@@ -187,7 +187,7 @@ export default function TermsPage() {
             <p>
               If Oreko experiences a material outage exceeding 24 consecutive
               hours, affected paid users may request a pro-rata service credit
-              by contacting support@wisdmlabs.com within 7 days of the incident.
+              by contacting support@oreko.app within 7 days of the incident.
             </p>
           </Section>
 
@@ -195,7 +195,7 @@ export default function TermsPage() {
             <p>
               Oreko is provided &ldquo;as is&rdquo; and &ldquo;as
               available&rdquo; without warranties of any kind, either express or
-              implied. To the fullest extent permitted by law, WisdmLabs
+              implied. To the fullest extent permitted by law, Infinite Wisdm FZ LLC
               disclaims all implied warranties, including merchantability,
               fitness for a particular purpose, and non-infringement.
             </p>
@@ -203,21 +203,21 @@ export default function TermsPage() {
 
           <Section title="11. Limitation of Liability">
             <p>
-              To the maximum extent permitted by applicable law, WisdmLabs shall
+              To the maximum extent permitted by applicable law, Infinite Wisdm FZ LLC shall
               not be liable for any indirect, incidental, special,
               consequential, or punitive damages, including loss of data, loss of
               revenue, or loss of business, arising out of your use of Oreko.
             </p>
             <p>
               Our total aggregate liability to you for any claim arising out of
-              these Terms shall not exceed the total amount you paid to WisdmLabs
+              these Terms shall not exceed the total amount you paid to Infinite Wisdm FZ LLC
               in the 12 months preceding the event giving rise to the claim.
             </p>
           </Section>
 
           <Section title="12. Indemnification">
             <p>
-              You agree to indemnify and hold WisdmLabs harmless from any
+              You agree to indemnify and hold Infinite Wisdm FZ LLC harmless from any
               claims, damages, losses, or expenses (including legal fees) arising
               from your violation of these Terms, your use of the service, or
               your violation of any third-party rights.
@@ -228,7 +228,7 @@ export default function TermsPage() {
             <p>
               If you believe that content submitted through Oreko infringes your
               copyright or other intellectual property rights, you may submit a
-              takedown notice to legal@wisdmlabs.com with the following
+              takedown notice to legal@oreko.app with the following
               information:
             </p>
             <ul>
@@ -258,7 +258,7 @@ export default function TermsPage() {
               If you process personal data of individuals located in the European
               Union or European Economic Area using Oreko, a Data Processing
               Agreement (DPA) is available upon request. Contact
-              legal@wisdmlabs.com.
+              legal@oreko.app.
             </p>
           </Section>
 
@@ -281,18 +281,15 @@ export default function TermsPage() {
           </Section>
 
           <Section title="16. Governing Law and Disputes">
-            <p>These Terms are governed by the laws of India.</p>
+            <p>These Terms are governed by the laws of the United Arab Emirates and the Emirate of Ras Al Khaimah.</p>
             <p>
               Before initiating formal proceedings, we encourage you to contact
-              us at legal@wisdmlabs.com to resolve disputes informally.
+              us at legal@oreko.app to resolve disputes informally.
             </p>
             <p>
-              If informal resolution fails, either party may elect to resolve the
-              dispute through binding arbitration administered under the
-              Arbitration and Conciliation Act, 1996, with the seat of
-              arbitration in Pune, Maharashtra, India. If arbitration is not
-              elected, any disputes shall be subject to the exclusive
-              jurisdiction of the courts located in Pune, Maharashtra, India.
+              If informal resolution fails, any disputes shall be subject to the
+              exclusive jurisdiction of the courts located in Ras Al Khaimah,
+              United Arab Emirates.
             </p>
           </Section>
 
@@ -310,14 +307,14 @@ export default function TermsPage() {
               <li>
                 Email:{' '}
                 <a
-                  href="mailto:legal@wisdmlabs.com"
+                  href="mailto:legal@oreko.app"
                   className="text-primary hover:underline"
                 >
-                  legal@wisdmlabs.com
+                  legal@oreko.app
                 </a>
               </li>
               <li>Website: oreko.app</li>
-              <li>Company: WisdmLabs, Pune, Maharashtra, India</li>
+              <li>Company: Infinite Wisdm FZ LLC, Al Hulaila Industrial Free Zone, RAK, UAE</li>
             </ul>
           </Section>
         </div>

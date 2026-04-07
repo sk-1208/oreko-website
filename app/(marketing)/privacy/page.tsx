@@ -24,24 +24,23 @@ export default function PrivacyPage() {
 
           <Section title="1. Who We Are">
             <p>
-              Oreko is a product of WisdmLabs, based in Pune, Maharashtra,
-              India.
+              Oreko is a product of Infinite Wisdm FZ LLC, based in Al Hulaila
+              Industrial Free Zone, RAK, United Arab Emirates.
             </p>
             <ul>
               <li>
                 Email:{' '}
                 <a
-                  href="mailto:privacy@wisdmlabs.com"
+                  href="mailto:privacy@oreko.app"
                   className="text-primary hover:underline"
                 >
-                  privacy@wisdmlabs.com
+                  privacy@oreko.app
                 </a>
               </li>
               <li>Website: oreko.app</li>
             </ul>
             <p>
-              Grievance Officer: reachable at grievance@wisdmlabs.com. Appointed
-              in accordance with the Digital Personal Data Protection Act, 2023.
+              Grievance Officer: reachable at grievance@oreko.app.
               Acknowledgement within 48 hours, substantive response within 30
               days.
             </p>
@@ -106,8 +105,7 @@ export default function PrivacyPage() {
                 To fix bugs, improve performance, and develop new features.
               </li>
               <li>
-                To comply with legal obligations under Indian law (including the
-                DPDP Act, 2023).
+                To comply with applicable legal obligations.
               </li>
             </ul>
             <p className="font-medium text-foreground">
@@ -141,9 +139,8 @@ export default function PrivacyPage() {
 
           <Section title="5. Data Storage and Security">
             <p>
-              Your data is stored primarily on servers located in India (AWS
-              ap-south-1, Mumbai). Backups may be replicated to the European
-              Union (AWS eu-west-1, Ireland).
+              Your data is stored on secure cloud servers. Backups may be
+              replicated to additional regions for redundancy.
             </p>
             <ul>
               <li>Encryption in transit (HTTPS/TLS).</li>
@@ -155,7 +152,7 @@ export default function PrivacyPage() {
             </ul>
             <p>
               We will notify you within 72 hours of discovery if a breach
-              affects your personal data, in accordance with the DPDP Act, 2023.
+              affects your personal data.
             </p>
           </Section>
 
@@ -167,7 +164,7 @@ export default function PrivacyPage() {
               </li>
               <li>
                 <strong>Billing records:</strong> retained for 7 years as
-                required by Indian tax law.
+                required by applicable tax law.
               </li>
               <li>
                 <strong>Usage/log data (including IP addresses):</strong>{' '}
@@ -176,15 +173,14 @@ export default function PrivacyPage() {
               <li>
                 <strong>Data you submitted:</strong> automatically deleted
                 within 30 days of account closure. You may contact
-                support@wisdmlabs.com to export your data before deletion.
+                support@oreko.app to export your data before deletion.
               </li>
             </ul>
           </Section>
 
           <Section title="7. Your Rights">
             <p>
-              Under India&rsquo;s Digital Personal Data Protection Act (DPDP
-              Act, 2023) and applicable law, you have the right to:
+              Under applicable data protection law, you have the right to:
             </p>
             <ul>
               <li>Access the personal data we hold about you.</li>
@@ -199,10 +195,10 @@ export default function PrivacyPage() {
             <p>
               To exercise any of these rights, email{' '}
               <a
-                href="mailto:privacy@wisdmlabs.com"
+                href="mailto:privacy@oreko.app"
                 className="text-primary hover:underline"
               >
-                privacy@wisdmlabs.com
+                privacy@oreko.app
               </a>
               . We will acknowledge within 48 hours and respond within 30 days.
             </p>
@@ -238,18 +234,17 @@ export default function PrivacyPage() {
             <p>
               Oreko is not intended for use by anyone under the age of 18. We do
               not knowingly collect personal data from minors. If you believe a
-              minor has provided us with data, contact privacy@wisdmlabs.com and
+              minor has provided us with data, contact privacy@oreko.app and
               we will delete it promptly.
             </p>
           </Section>
 
           <Section title="10. International Data Transfers">
             <p>
-              If you access Oreko from outside India, your data may be
-              transferred to and processed in India. We ensure compliance with
-              the DPDP Act, 2023 and, where applicable, GDPR requirements
-              through appropriate safeguards such as Standard Contractual Clauses
-              (SCCs).
+              Your data may be transferred to and processed in jurisdictions
+              outside your own. We ensure compliance with applicable data
+              protection laws and, where applicable, GDPR requirements through
+              appropriate safeguards such as Standard Contractual Clauses (SCCs).
             </p>
           </Section>
 
@@ -267,15 +262,15 @@ export default function PrivacyPage() {
               <li>
                 Email:{' '}
                 <a
-                  href="mailto:privacy@wisdmlabs.com"
+                  href="mailto:privacy@oreko.app"
                   className="text-primary hover:underline"
                 >
-                  privacy@wisdmlabs.com
+                  privacy@oreko.app
                 </a>
               </li>
-              <li>Grievance Officer: grievance@wisdmlabs.com</li>
+              <li>Grievance Officer: grievance@oreko.app</li>
               <li>Website: oreko.app</li>
-              <li>Company: WisdmLabs, Pune, Maharashtra, India</li>
+              <li>Company: Infinite Wisdm FZ LLC, Al Hulaila Industrial Free Zone, RAK, UAE</li>
             </ul>
           </Section>
         </div>

@@ -28,7 +28,7 @@ export default function ClaPage() {
               (&ldquo;Contributor&rdquo;) that submits code, documentation, bug
               fixes, design assets, or any other material
               (&ldquo;Contribution&rdquo;) to the Oreko project owned by
-              WisdmLabs.
+              Infinite Wisdm FZ LLC.
             </p>
           </Section>
 
@@ -49,16 +49,16 @@ export default function ClaPage() {
             </ul>
           </Section>
 
-          <Section title="3. What You&rsquo;re Granting WisdmLabs">
+          <Section title="3. What You&rsquo;re Granting Infinite Wisdm FZ LLC">
             <h4>3.1 Copyright Licence</h4>
             <p>
-              By submitting a Contribution, you grant WisdmLabs a perpetual,
+              By submitting a Contribution, you grant Infinite Wisdm FZ LLC a perpetual,
               worldwide, royalty-free, irrevocable, non-exclusive licence to:
             </p>
             <ul>
               <li>Use, copy, modify, and distribute your Contribution.</li>
               <li>
-                Incorporate it into Oreko under any licence WisdmLabs chooses,
+                Incorporate it into Oreko under any licence Infinite Wisdm FZ LLC chooses,
                 including commercial licences.
               </li>
               <li>
@@ -68,13 +68,13 @@ export default function ClaPage() {
             </ul>
             <p>
               You retain ownership of your Contribution. You are not
-              transferring copyright, only granting WisdmLabs the rights listed
+              transferring copyright, only granting Infinite Wisdm FZ LLC the rights listed
               above.
             </p>
 
             <h4>3.2 Patent Licence</h4>
             <p>
-              You grant WisdmLabs a perpetual, worldwide, royalty-free,
+              You grant Infinite Wisdm FZ LLC a perpetual, worldwide, royalty-free,
               irrevocable, non-exclusive patent licence to make, have made, use,
               sell, offer to sell, import, and otherwise transfer your
               Contribution, where such licence applies only to those patent
@@ -98,19 +98,19 @@ export default function ClaPage() {
               under AGPL v3.
             </p>
             <p>
-              WisdmLabs additionally reserves the right to offer your
+              Infinite Wisdm FZ LLC additionally reserves the right to offer your
               Contribution under a separate commercial licence as described in
               Section 3.1. Your Contribution will always remain available under
               AGPL v3 in the open-source repository, regardless of any
-              additional licences WisdmLabs may offer.
+              additional licences Infinite Wisdm FZ LLC may offer.
             </p>
           </Section>
 
           <Section title="6. Moral Rights">
             <p>
               To the extent permitted by applicable law, you agree not to assert
-              any moral rights in your Contribution against WisdmLabs or its
-              licensees. WisdmLabs will use reasonable efforts to attribute
+              any moral rights in your Contribution against Infinite Wisdm FZ LLC or its
+              licensees. Infinite Wisdm FZ LLC will use reasonable efforts to attribute
               Contributors in the project&rsquo;s CONTRIBUTORS file.
             </p>
           </Section>
@@ -118,7 +118,7 @@ export default function ClaPage() {
           <Section title="7. No Warranty">
             <p>
               You provide your Contribution &ldquo;as is&rdquo;, without any
-              warranties of any kind. You are not responsible for how WisdmLabs
+              warranties of any kind. You are not responsible for how Infinite Wisdm FZ LLC
               uses it after submission.
             </p>
           </Section>
@@ -137,7 +137,7 @@ export default function ClaPage() {
                 your first Pull Request.
               </li>
               <li>
-                Sign the CLA digitally if WisdmLabs requests it via email.
+                Sign the CLA digitally if Infinite Wisdm FZ LLC requests it via email.
               </li>
             </ul>
             <p>
@@ -148,9 +148,9 @@ export default function ClaPage() {
           <Section title="9. Why We Use a CLA">
             <p>
               Oreko uses a dual-licensing model: the open-source code is
-              available under AGPL v3, while WisdmLabs also offers a commercial
+              available under AGPL v3, while Infinite Wisdm FZ LLC also offers a commercial
               licence for organisations that cannot comply with the AGPL&rsquo;s
-              copyleft requirements. The CLA ensures that WisdmLabs has the
+              copyleft requirements. The CLA ensures that Infinite Wisdm FZ LLC has the
               necessary rights to offer both licensing options, which in turn
               funds continued development of the open-source project.
             </p>
@@ -160,10 +160,10 @@ export default function ClaPage() {
             <p>
               Contact us at{' '}
               <a
-                href="mailto:legal@wisdmlabs.com"
+                href="mailto:legal@oreko.app"
                 className="text-primary hover:underline"
               >
-                legal@wisdmlabs.com
+                legal@oreko.app
               </a>
             </p>
           </Section>
