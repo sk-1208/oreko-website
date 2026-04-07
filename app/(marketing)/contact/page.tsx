@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Mail, MessageSquare, Github, Twitter } from 'lucide-react';
+import { Mail, Github } from 'lucide-react';
 
 export const metadata = {
   title: 'Contact | Oreko',
@@ -9,17 +9,10 @@ export const metadata = {
 
 const contactMethods = [
   {
-    icon: MessageSquare,
-    title: 'Discord Community',
-    description: 'Join our Discord server for real-time help and discussions.',
-    href: 'https://discord.gg/oreko',
-    label: 'Join Discord',
-  },
-  {
     icon: Github,
     title: 'GitHub Issues',
     description: 'Report bugs or request features on our GitHub repository.',
-    href: 'https://github.com/oreko/oreko/issues',
+    href: 'https://github.com/orekoapp/oreko/issues',
     label: 'Open Issue',
   },
   {
@@ -28,13 +21,6 @@ const contactMethods = [
     description: 'For general inquiries and support questions.',
     href: 'mailto:support@oreko.app',
     label: 'Send Email',
-  },
-  {
-    icon: Twitter,
-    title: 'Twitter',
-    description: 'Follow us for updates and announcements.',
-    href: 'https://twitter.com/oreko',
-    label: 'Follow Us',
   },
 ];
 

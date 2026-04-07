@@ -446,7 +446,7 @@ export default function PricingPage() {
                   >
                     <span className="font-medium block">{p.name}</span>
                     <span className="text-xs font-normal opacity-70">
-                      {p.name === 'Free' ? 'Cloud' : p.name === 'Enterprise' ? 'Custom' : isAnnual ? p.annualPrice + '/mo' : p.monthlyPrice + '/mo'}
+                      {p.name === 'Free' ? 'Cloud' : isAnnual ? p.annualPrice + '/mo' : p.monthlyPrice + '/mo'}
                     </span>
                   </th>
                 ))}

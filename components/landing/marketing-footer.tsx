@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Github, Twitter, MessageCircle, Linkedin } from 'lucide-react';
+import { Github } from 'lucide-react';
 import { Logo } from '@/components/ui/logo';
 
 const footerLinks = {
@@ -28,9 +28,6 @@ const footerLinks = {
 
 const socialLinks = [
   { label: 'GitHub', href: 'https://github.com/orekoapp/oreko', icon: Github },
-  { label: 'Twitter', href: 'https://twitter.com/orekoapp', icon: Twitter },
-  { label: 'Discord', href: 'https://discord.gg/orekoapp', icon: MessageCircle },
-  { label: 'LinkedIn', href: 'https://linkedin.com/company/orekoapp', icon: Linkedin },
 ];
 
 export function MarketingFooter() {

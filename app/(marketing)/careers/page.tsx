@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Heart, Code, Coffee } from 'lucide-react';
+import { Heart, Code } from 'lucide-react';
 
 export const metadata = {
   title: 'Careers | Oreko',
@@ -45,7 +45,7 @@ export default function CareersPage() {
             </p>
             <Button asChild variant="outline" size="sm">
               <a
-                href="https://github.com/oreko/oreko/blob/main/CONTRIBUTING.md"
+                href="https://github.com/orekoapp/oreko/blob/main/CONTRIBUTING.md"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -54,27 +54,6 @@ export default function CareersPage() {
             </Button>
           </div>
 
-          <div className="rounded-lg border p-6">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="rounded-lg bg-primary/10 p-2">
-                <Coffee className="h-5 w-5 text-primary" />
-              </div>
-              <h3 className="text-lg font-semibold">Join the Community</h3>
-            </div>
-            <p className="text-muted-foreground mb-4">
-              Connect with other contributors and users on Discord. Share ideas, ask questions,
-              and help shape the future of Oreko.
-            </p>
-            <Button asChild variant="outline" size="sm">
-              <a
-                href="https://discord.gg/oreko"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Join Discord
-              </a>
-            </Button>
-          </div>
         </div>
 
         <div className="mt-12 text-center">

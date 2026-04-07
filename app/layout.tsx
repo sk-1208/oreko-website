@@ -54,7 +54,6 @@ export const metadata: Metadata = {
     description:
       'The open-source alternative to Bloom and Bonsai. Create stunning quotes and invoices for free.',
     images: [{ url: '/twitter-image', width: 1200, height: 630 }],
-    creator: '@oreko',
   },
   robots: {
     index: true,
