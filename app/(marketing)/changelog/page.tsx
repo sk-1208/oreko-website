@@ -90,7 +90,7 @@ export default function ChangelogPage() {
           <p className="text-muted-foreground">
             Want to stay updated?{' '}
             <a
-              href="https://github.com/oreko/oreko"
+              href="https://github.com/orekoapp/oreko"
               target="_blank"
               rel="noopener noreferrer"
               className="text-primary hover:underline"
