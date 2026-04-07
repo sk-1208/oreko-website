@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Check, Minus, Github } from 'lucide-react';
+import { Check, Minus, Info, Github } from 'lucide-react';
 import { motion } from 'motion/react';
 import { SpotlightCard } from '@/components/ui/spotlight-card';
 
@@ -29,7 +29,7 @@ const plans = [
       { label: 'Advanced analytics', value: false },
       { label: 'API access', value: false },
       { label: 'Support', value: 'Community' },
-    ] as { label: string; value: FeatureValue }[],
+    ] as { label: string; value: FeatureValue; tooltip?: string }[],
   },
   {
     name: 'Pro',
@@ -52,7 +52,7 @@ const plans = [
       { label: 'Advanced analytics', value: false },
       { label: 'API access', value: false },
       { label: 'Support', value: 'Priority email' },
-    ] as { label: string; value: FeatureValue }[],
+    ] as { label: string; value: FeatureValue; tooltip?: string }[],
   },
   {
     name: 'Business',
@@ -75,7 +75,7 @@ const plans = [
       { label: 'Advanced analytics', value: true },
       { label: 'API access', value: true },
       { label: 'Support', value: 'Dedicated' },
-    ] as { label: string; value: FeatureValue }[],
+    ] as { label: string; value: FeatureValue; tooltip?: string }[],
   },
   {
     name: 'Unlimited',
@@ -88,7 +88,7 @@ const plans = [
     ctaHref: '/register',
     highlighted: false,
     features: [
-      { label: 'Documents', value: '1,000/month' },
+      { label: 'Documents', value: '1,000/month', tooltip: 'Need more than 1,000? Contact us for a custom plan.' },
       { label: 'Team members', value: 'Unlimited' },
       { label: 'Core features', value: true },
       { label: 'Cloud hosting', value: true },
@@ -98,14 +98,26 @@ const plans = [
       { label: 'Advanced analytics', value: true },
       { label: 'API access', value: true },
       { label: 'Support', value: 'Priority email' },
-    ] as { label: string; value: FeatureValue }[],
+    ] as { label: string; value: FeatureValue; tooltip?: string }[],
   },
 ];
 
-function FeatureVal({ value }: { value: FeatureValue }) {
+function FeatureVal({ value, tooltip }: { value: FeatureValue; tooltip?: string }) {
   if (value === true) return <Check className="h-4 w-4 text-primary" />;
   if (value === false) return <Minus className="h-4 w-4 text-muted-foreground/30" />;
-  return <span className="text-sm font-medium text-foreground">{value}</span>;
+  return (
+    <span className="flex items-center gap-1 text-sm font-medium text-foreground">
+      {value}
+      {tooltip && (
+        <span className="relative group">
+          <Info className="h-3.5 w-3.5 text-muted-foreground/50 cursor-help" />
+          <span className="pointer-events-none absolute bottom-full right-0 mb-2 w-48 rounded-lg border border-border bg-background p-2.5 text-xs font-normal leading-relaxed text-muted-foreground shadow-lg opacity-0 group-hover:opacity-100 transition-opacity z-50">
+            {tooltip}
+          </span>
+        </span>
+      )}
+    </span>
+  );
 }
 
 export function PricingSection() {
@@ -223,8 +235,19 @@ export function PricingSection() {
                       key={`${plan.name}-${fi}`}
                       className="flex items-center justify-between text-sm"
                     >
-                      <span className="text-muted-foreground">{feature.label}</span>
-                      <FeatureVal value={feature.value} />
+                      <span className="text-muted-foreground flex items-center gap-1">
+                        {feature.label}
+                        {feature.label === 'Documents' && (
+                          <span className="relative group">
+                            <Info className="h-3.5 w-3.5 text-muted-foreground/50 cursor-help" />
+                            <span className="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-52 rounded-lg border border-border bg-background p-2.5 text-xs leading-relaxed text-muted-foreground shadow-lg opacity-0 group-hover:opacity-100 transition-opacity z-50">
+                              <span className="font-medium text-foreground">Documents = invoices + quotes + contracts</span>{' '}
+                              combined. Each one you create counts as 1 document. Resets every billing cycle.
+                            </span>
+                          </span>
+                        )}
+                      </span>
+                      <FeatureVal value={feature.value} tooltip={feature.tooltip} />
                     </div>
                   ))}
                 </div>
