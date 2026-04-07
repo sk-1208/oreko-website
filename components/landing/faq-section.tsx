@@ -8,17 +8,12 @@ const faqs = [
   {
     question: 'Is it really free?',
     answer:
-      'Yes. The self-hosted version is free forever with no feature limits. You get the same platform as our paid cloud users. We make money from managed hosting and team plans, not from locking features behind paywalls.',
+      'Yes. The self-hosted version is free with no feature limits. You get the same platform as our paid cloud users. We make money from managed hosting and team plans, not from locking features behind paywalls.',
   },
   {
     question: 'How hard is self-hosting?',
     answer:
       'If you can follow a README, you can deploy Oreko. We provide Docker images and one-click deploy options for popular platforms. Most users are up and running in under 15 minutes.',
-  },
-  {
-    question: 'Can I migrate from FreshBooks / Wave / Bonsai?',
-    answer:
-      'Yes. Oreko supports CSV import for clients, invoices, and quotes. We also have migration guides for the most popular platforms. Your data comes with you.',
   },
   {
     question: 'Is my client data secure?',
@@ -28,7 +23,7 @@ const faqs = [
   {
     question: 'What if I outgrow the free plan?',
     answer:
-      "You won't. There's no limit on clients, invoices, or features in the free plan. If you want managed hosting or team features, upgrade to Cloud or Team. If your needs change, downgrade anytime. No penalties.",
+      "The free plan includes 25 documents and 250 MB of storage. If you need more, upgrade to Pro, Business, or Unlimited for higher limits, more team members, and additional features. You can also self-host for unlimited everything. Switch plans anytime — no penalties.",
   },
   {
     question: 'Can I customize invoices and quotes?',

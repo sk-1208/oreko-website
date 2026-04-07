@@ -6,7 +6,7 @@ interface LogoProps {
 
 export function Logo({ className }: LogoProps) {
   return (
-    <span className={cn('font-display font-medium text-lg text-primary', className)}>
+    <span className={cn('font-display font-medium text-2xl text-primary', className)}>
       Oreko
     </span>
   );
