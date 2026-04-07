@@ -101,14 +101,14 @@ export function TestimonialsSection() {
 
       {/* Marquee row 1 */}
       <Marquee speed={35} className="mb-4 [--gap:1rem]">
-        {testimonials.slice(0, 3).map((t, i) => (
+        {testimonials.map((t, i) => (
           <TestimonialCard key={`row1-${i}`} {...t} />
         ))}
       </Marquee>
 
-      {/* Marquee row 2 — reverse direction */}
+      {/* Marquee row 2 — reverse direction, different order */}
       <Marquee speed={35} reverse className="[--gap:1rem]">
-        {testimonials.slice(3).map((t, i) => (
+        {[...testimonials].reverse().map((t, i) => (
           <TestimonialCard key={`row2-${i}`} {...t} />
         ))}
       </Marquee>

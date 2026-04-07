@@ -41,7 +41,7 @@ export default function HomePage() {
           <TrustSection />
           <FeaturesSection />
           <ComparisonSection />
-          <TestimonialsSection />
+          {/* <TestimonialsSection /> */}
           <PricingSection />
           <OpenSourceSection />
           <FaqSection />
