@@ -82,17 +82,17 @@ const plans = [
     ] as { label: string; value: FeatureValue }[],
   },
   {
-    name: 'Enterprise',
-    monthlyPrice: 'Custom',
-    annualPrice: 'Custom',
-    period: '',
-    annualPeriod: '',
-    description: 'For teams that need more volume and control.',
-    cta: 'Contact sales',
-    ctaHref: '/contact',
+    name: 'Unlimited',
+    monthlyPrice: '$59',
+    annualPrice: '$49',
+    period: '/mo',
+    annualPeriod: '/mo',
+    description: 'Everything included. No surprises.',
+    cta: 'Start free trial',
+    ctaHref: '/register',
     highlighted: false,
     features: [
-      { label: 'Documents', value: 'Unlimited' },
+      { label: 'Documents', value: '1,000/month' },
       { label: 'Team members', value: 'Unlimited' },
       { label: 'Core features', value: true },
       { label: 'Cloud hosting', value: true },
@@ -101,8 +101,7 @@ const plans = [
       { label: 'Recurring invoices', value: true },
       { label: 'Advanced analytics', value: true },
       { label: 'API access', value: true },
-      { label: 'Custom integrations', value: true },
-      { label: 'Support', value: 'Dedicated manager' },
+      { label: 'Support', value: 'Priority email' },
     ] as { label: string; value: FeatureValue }[],
   },
 ];
@@ -126,7 +125,7 @@ const comparisonCategories: {
   {
     category: 'Plan Tiers',
     rows: [
-      { feature: 'Documents per month', values: ['25', '100', '250', 'Unlimited'] },
+      { feature: 'Documents per month', values: ['25', '100', '250', '1,000'] },
       { feature: 'Team members', values: ['1', '1 (owner only)', 'Up to 5', 'Unlimited'] },
       { feature: 'Recurring invoices', values: [false, false, true, true] },
       { feature: 'Role-based permissions', values: [false, false, true, true] },
@@ -156,23 +155,12 @@ const comparisonCategories: {
       { feature: 'Automatic backups', values: [false, true, true, true] },
       { feature: 'Automatic updates', values: [false, true, true, true] },
       { feature: 'SSL & uptime monitoring', values: [false, true, true, true] },
-      { feature: 'SLA with uptime guarantee', values: [false, false, false, true] },
     ],
   },
   {
     category: 'Advanced',
     rows: [
       { feature: 'Analytics dashboard', values: [true, true, true, true] },
-      { feature: 'Custom integrations', values: [false, false, false, true] },
-      { feature: 'Custom invoice design', values: [false, false, false, true] },
-      { feature: 'Data migration assistance', values: [false, false, false, true] },
-    ],
-  },
-  {
-    category: 'Extras',
-    rows: [
-      { feature: 'Document top-ups ($10/100 docs)', values: [false, true, true, true] },
-      { feature: 'Stripe payments', values: [false, true, true, true] },
     ],
   },
   {
@@ -181,8 +169,6 @@ const comparisonCategories: {
       { feature: 'Community support', values: [true, true, true, true] },
       { feature: 'Priority email support', values: [false, true, true, true] },
       { feature: 'Dedicated support', values: [false, false, true, true] },
-      { feature: 'Dedicated account manager', values: [false, false, false, true] },
-      { feature: 'Priority onboarding', values: [false, false, false, true] },
     ],
   },
 ];
@@ -202,7 +188,7 @@ const faqs = [
   },
   {
     q: 'What happens if I hit my document limit?',
-    a: 'You can still view and manage existing documents. To create new ones, upgrade your plan, buy a top-up ($10 for 100 documents), or wait for the next billing cycle.',
+    a: 'You can still view and manage existing documents. To create new ones, upgrade your plan or wait for the next billing cycle. The Unlimited plan gives you 1,000 documents per month.',
   },
   {
     q: 'Can I switch plans later?',
@@ -362,31 +348,12 @@ export default function PricingPage() {
         ))}
       </div>
 
-      {/* Top-up box */}
-      <div className="mt-8 rounded-xl border border-border bg-muted/30 p-8">
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-          <div>
-            <div className="flex items-baseline gap-2">
-              <span className="text-4xl font-display font-medium text-foreground">$10</span>
-              <span className="text-muted-foreground text-base">/ 100 documents</span>
-            </div>
-            <p className="text-sm text-muted-foreground mt-1.5">
-              For additional documents. Buy anytime, no expiry, works on any paid plan.
-            </p>
-          </div>
-          <Link
-            href="/contact"
-            className="shrink-0 inline-flex items-center gap-2 text-sm font-medium px-6 py-2.5 rounded-md bg-foreground text-background hover:bg-foreground/90 transition-all active:scale-[0.98]"
-          >
-            Learn more
-            <span aria-hidden="true">&rarr;</span>
-          </Link>
-        </div>
-      </div>
-
       <p className="mt-6 text-xs text-muted-foreground/60">
         Documents = invoices + quotes + contracts combined. Unused documents
-        don&rsquo;t roll over. Top-ups are available on all paid plans.
+        don&rsquo;t roll over. Need more than 1,000 documents?{' '}
+        <Link href="/contact" className="text-primary hover:underline">
+          Contact us
+        </Link>
       </p>
 
       {/* Community Edition */}

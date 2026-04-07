@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { Check, Minus, Github } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion } from 'motion/react';
 import { SpotlightCard } from '@/components/ui/spotlight-card';
 
 type FeatureValue = string | boolean;
@@ -78,17 +78,17 @@ const plans = [
     ] as { label: string; value: FeatureValue }[],
   },
   {
-    name: 'Enterprise',
-    monthlyPrice: 'Custom',
-    annualPrice: 'Custom',
-    period: '',
-    annualPeriod: '',
-    description: 'For teams that need more volume and control.',
-    cta: 'Contact sales',
-    ctaHref: '/contact',
+    name: 'Unlimited',
+    monthlyPrice: '$59',
+    annualPrice: '$49',
+    period: '/mo',
+    annualPeriod: '/mo',
+    description: 'Everything included. No surprises.',
+    cta: 'Start free trial',
+    ctaHref: '/register',
     highlighted: false,
     features: [
-      { label: 'Documents', value: 'Unlimited' },
+      { label: 'Documents', value: '1,000/month' },
       { label: 'Team members', value: 'Unlimited' },
       { label: 'Core features', value: true },
       { label: 'Cloud hosting', value: true },
@@ -97,8 +97,7 @@ const plans = [
       { label: 'Recurring invoices', value: true },
       { label: 'Advanced analytics', value: true },
       { label: 'API access', value: true },
-      { label: 'Custom integrations', value: true },
-      { label: 'Support', value: 'Dedicated manager' },
+      { label: 'Support', value: 'Priority email' },
     ] as { label: string; value: FeatureValue }[],
   },
 ];
@@ -234,38 +233,13 @@ export function PricingSection() {
           ))}
         </div>
 
-        {/* Top-up box */}
-        <motion.div
-          className="mt-8 rounded-xl border border-border bg-muted/30 p-8"
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.4, ease: 'easeOut' }}
-        >
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-            <div>
-              <div className="flex items-baseline gap-2">
-                <span className="text-4xl font-display font-medium text-foreground">$10</span>
-                <span className="text-muted-foreground text-base">/ 100 documents</span>
-              </div>
-              <p className="text-sm text-muted-foreground mt-1.5">
-                For additional documents. Buy anytime, no expiry, works on any paid plan.
-              </p>
-            </div>
-            <Link
-              href="/pricing"
-              className="shrink-0 inline-flex items-center gap-2 text-sm font-medium px-6 py-2.5 rounded-md bg-foreground text-background hover:bg-foreground/90 transition-all active:scale-[0.98]"
-            >
-              Learn more
-              <span aria-hidden="true">&rarr;</span>
-            </Link>
-          </div>
-        </motion.div>
-
         {/* Footnote */}
         <p className="mt-6 text-xs text-muted-foreground/60">
           Documents = invoices + quotes + contracts combined. Unused documents
-          don&rsquo;t roll over. Top-ups are available on all paid plans.
+          don&rsquo;t roll over. Need more than 1,000 documents?{' '}
+          <Link href="/contact" className="text-primary hover:underline">
+            Contact us
+          </Link>
         </p>
 
         {/* Community Edition */}
