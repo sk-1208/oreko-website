@@ -2,7 +2,7 @@
 
 import { useRef } from 'react';
 import Link from 'next/link';
-import { Github, Shield, Server, Code, Star, GitFork } from 'lucide-react';
+import { Github, Shield, Server, Code, GitFork } from 'lucide-react';
 import { motion, useInView } from 'motion/react';
 
 const benefits = [
@@ -25,26 +25,6 @@ const benefits = [
       'No tracking, no analytics on your data. Client information stays on your server.',
   },
 ];
-
-function AnimatedCount({ value, suffix = '' }: { value: number; suffix?: string }) {
-  return (
-    <motion.span
-      className="font-medium text-foreground tabular-nums"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-    >
-      <motion.span
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-      >
-        {value.toLocaleString()}
-        {suffix}
-      </motion.span>
-    </motion.span>
-  );
-}
 
 export function OpenSourceSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -99,35 +79,6 @@ export function OpenSourceSection() {
             </Link>
           </motion.div>
         </div>
-
-        {/* Stats bar */}
-        <motion.div
-          className="flex flex-wrap items-center gap-8 mb-16 pb-16 border-b border-border"
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.5, delay: 0.25 }}
-        >
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
-            <Star className="h-4 w-4 text-warning" />
-            <AnimatedCount value={2400} suffix="+" /> stars
-          </div>
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
-            <GitFork className="h-4 w-4" />
-            <AnimatedCount value={380} suffix="+" /> forks
-          </div>
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
-            <span className="font-medium text-foreground">AGPL v3</span> license
-          </div>
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
-            <motion.span
-              className="h-2 w-2 rounded-full bg-success"
-              animate={{ scale: [1, 1.4, 1] }}
-              transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-            />
-            <span className="font-medium text-foreground">Active</span>{' '}
-            development
-          </div>
-        </motion.div>
 
         {/* Benefits grid */}
         <div className="grid sm:grid-cols-3 gap-10">
