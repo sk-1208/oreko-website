@@ -3,33 +3,31 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
-import { Check, Info } from 'lucide-react';
+import { Check, Info, Github } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { SpotlightCard } from '@/components/ui/spotlight-card';
 
 const plans = [
   {
     name: 'Free',
-    subtitle: 'Self-hosted',
+    subtitle: 'Cloud',
     monthlyPrice: 'Free',
     annualPrice: 'Free',
     period: 'forever',
     annualPeriod: 'forever',
-    documents: 'Unlimited',
-    description: 'No credit card. No trial period. No catch.',
-    cta: 'Deploy now',
-    ctaHref: 'https://github.com/orekoapp/oreko',
+    documents: '25 documents/mo',
+    description: 'Try Oreko cloud with no commitment.',
+    cta: 'Get started',
+    ctaHref: '/register',
     highlighted: false,
     features: [
-      'Unlimited documents',
-      'Unlimited clients',
+      '25 documents per month',
+      '1 user (owner only)',
       'Quotes, invoices & contracts',
       'E-signatures',
       'Online payments',
       'PDF generation',
-      'Email notifications',
-      'Analytics dashboard',
-      'Full source code access',
+      'Managed hosting',
       'Community support',
     ],
   },
@@ -47,15 +45,14 @@ const plans = [
     highlighted: true,
     features: [
       '100 documents per month',
-      'Unlimited clients',
+      '1 user (owner only)',
       'Everything in Free',
-      'Managed hosting & backups',
-      'Automatic updates',
+      'Auto-reminder emails',
       'Custom domain',
-      'Priority email support',
+      'Automatic updates & backups',
       'Stripe payments',
       'SSL & uptime monitoring',
-      'Auto-reminder emails',
+      'Priority email support',
     ],
   },
   {
@@ -74,11 +71,11 @@ const plans = [
       '250 documents per month',
       'Up to 5 team members',
       'Everything in Pro',
-      'Advanced analytics & reports',
-      'Contract templates library',
       'Recurring invoices',
       'Role-based permissions',
+      'Advanced analytics & reports',
       'API access',
+      'Contract templates library',
       'Dedicated support',
     ],
   },
@@ -321,11 +318,92 @@ export function PricingSection() {
           ))}
         </div>
 
+        {/* Top-up box */}
+        <motion.div
+          className="mt-8 rounded-xl border border-border bg-muted/30 p-8"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.4, ease: 'easeOut' }}
+        >
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+            <div>
+              <div className="flex items-baseline gap-2">
+                <span className="text-4xl font-display font-medium text-foreground">$10</span>
+                <span className="text-muted-foreground text-base">/ 100 documents</span>
+              </div>
+              <p className="text-sm text-muted-foreground mt-1.5">
+                For additional documents. Buy anytime, no expiry, works on any paid plan.
+              </p>
+            </div>
+            <Link
+              href="/pricing"
+              className="shrink-0 inline-flex items-center gap-2 text-sm font-medium px-6 py-2.5 rounded-md bg-foreground text-background hover:bg-foreground/90 transition-all active:scale-[0.98]"
+            >
+              Learn more
+              <span aria-hidden="true">&rarr;</span>
+            </Link>
+          </div>
+        </motion.div>
+
         {/* Footnote */}
         <p className="mt-6 text-xs text-muted-foreground/60">
           Documents = invoices + quotes + contracts combined. Unused documents
-          don&rsquo;t roll over. Need more? Contact us for custom volume.
+          don&rsquo;t roll over. Top-ups are available on all paid plans.
         </p>
+
+        {/* Community Edition */}
+        <motion.div
+          className="mt-16"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+        >
+          <div className="rounded-xl border border-dashed border-border bg-background p-8">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+              <div className="max-w-xl">
+                <div className="flex items-center gap-3 mb-2">
+                  <Github className="h-5 w-5 text-foreground" />
+                  <h3 className="font-display text-xl font-medium text-foreground">
+                    Community Edition
+                  </h3>
+                  <span className="text-xs font-medium text-emerald-600 bg-emerald-500/10 px-2.5 py-0.5 rounded-full">
+                    Open source
+                  </span>
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Self-host Oreko on your own infrastructure. Unlimited documents, full source code, and complete control over your data. No usage caps, no feature gates &mdash; just the core product, forever free.
+                </p>
+
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {[
+                    'Unlimited documents',
+                    'Full source code',
+                    'Your own database',
+                    'Community support',
+                  ].map((tag) => (
+                    <span
+                      key={tag}
+                      className="inline-flex items-center gap-1.5 text-xs text-muted-foreground bg-muted px-2.5 py-1 rounded-md"
+                    >
+                      <Check className="h-3 w-3 text-primary" />
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <Link
+                href="https://github.com/orekoapp/oreko"
+                className="shrink-0 inline-flex items-center gap-2 text-sm font-medium px-6 py-2.5 rounded-md border border-border text-foreground hover:bg-accent transition-all active:scale-[0.98]"
+              >
+                <Github className="h-4 w-4" />
+                Deploy now
+              </Link>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
