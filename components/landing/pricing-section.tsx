@@ -45,7 +45,7 @@ const plans = [
     features: [
       { label: 'Documents', value: '100 total', tooltip: 'You can store up to 100 documents at once. Delete old ones to free up space.' },
       { label: 'Storage', value: '2 GB' },
-      { label: 'Team members', value: '1' },
+      { label: 'Team members', value: 'Up to 2' },
       { label: 'Core features', value: true },
       { label: 'Cloud hosting', value: true },
       { label: 'Auto-reminders', value: true },

@@ -49,7 +49,7 @@ const plans = [
     features: [
       { label: 'Documents', value: '100 total', tooltip: 'You can store up to 100 documents at once. Delete old ones to free up space.' },
       { label: 'Storage', value: '2 GB' },
-      { label: 'Team members', value: '1' },
+      { label: 'Team members', value: 'Up to 2' },
       { label: 'Core features', value: true },
       { label: 'Cloud hosting', value: true },
       { label: 'Auto-reminders', value: true },
@@ -143,7 +143,7 @@ const comparisonCategories: {
     rows: [
       { feature: 'Document pool', values: ['25', '100', '250', '1,000'] },
       { feature: 'Storage', values: ['250 MB', '2 GB', '10 GB', '30 GB'] },
-      { feature: 'Team members', values: ['1', '1 (owner only)', 'Up to 5', 'Unlimited'] },
+      { feature: 'Team members', values: ['1', 'Up to 2', 'Up to 5', 'Unlimited'] },
       { feature: 'Recurring invoices', values: [false, false, true, true] },
       { feature: 'Role-based permissions', values: [false, false, true, true] },
       { feature: 'Advanced analytics', values: [false, false, true, true] },
