@@ -20,7 +20,8 @@ const plans = [
     ctaHref: '/register',
     highlighted: false,
     features: [
-      { label: 'Documents', value: '25/month' },
+      { label: 'Documents', value: '25 total', tooltip: 'You can store up to 25 documents at once. Delete old ones to free up space.' },
+      { label: 'Storage', value: '250 MB' },
       { label: 'Team members', value: '1' },
       { label: 'Core features', value: true },
       { label: 'Cloud hosting', value: true },
@@ -42,7 +43,8 @@ const plans = [
     ctaHref: '/register',
     highlighted: true,
     features: [
-      { label: 'Documents', value: '100/month' },
+      { label: 'Documents', value: '100 total', tooltip: 'You can store up to 100 documents at once. Delete old ones to free up space.' },
+      { label: 'Storage', value: '2 GB' },
       { label: 'Team members', value: '1' },
       { label: 'Core features', value: true },
       { label: 'Cloud hosting', value: true },
@@ -65,7 +67,8 @@ const plans = [
     ctaHref: '/register',
     highlighted: false,
     features: [
-      { label: 'Documents', value: '250/month' },
+      { label: 'Documents', value: '250 total', tooltip: 'You can store up to 250 documents at once. Delete old ones to free up space.' },
+      { label: 'Storage', value: '10 GB' },
       { label: 'Team members', value: 'Up to 5' },
       { label: 'Core features', value: true },
       { label: 'Cloud hosting', value: true },
@@ -88,7 +91,8 @@ const plans = [
     ctaHref: '/register',
     highlighted: false,
     features: [
-      { label: 'Documents', value: '1,000/month', tooltip: 'Need more than 1,000? Contact us for a custom plan.' },
+      { label: 'Documents', value: '1,000 total', tooltip: 'You can store up to 1,000 documents at once. Delete old ones to free up space. Need more? Contact us.' },
+      { label: 'Storage', value: '30 GB' },
       { label: 'Team members', value: 'Unlimited' },
       { label: 'Core features', value: true },
       { label: 'Cloud hosting', value: true },
@@ -242,7 +246,7 @@ export function PricingSection() {
                             <Info className="h-3.5 w-3.5 text-muted-foreground/50 cursor-help" />
                             <span className="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-52 rounded-lg border border-border bg-background p-2.5 text-xs leading-relaxed text-muted-foreground shadow-lg opacity-0 group-hover:opacity-100 transition-opacity z-50">
                               <span className="font-medium text-foreground">Documents = invoices + quotes + contracts</span>{' '}
-                              combined. Each one you create counts as 1 document. Resets every billing cycle.
+                              combined. Your limit is a pool &mdash; documents count until you delete them. Delete old ones to free up space.
                             </span>
                           </span>
                         )}
@@ -258,8 +262,8 @@ export function PricingSection() {
 
         {/* Footnote */}
         <p className="mt-6 text-xs text-muted-foreground/60">
-          Documents = invoices + quotes + contracts combined. Unused documents
-          don&rsquo;t roll over. Need more than 1,000 documents?{' '}
+          Documents = invoices + quotes + contracts combined. Your limit is a
+          pool &mdash; documents count until you delete them. Need more than 1,000?{' '}
           <Link href="/contact" className="text-primary hover:underline">
             Contact us
           </Link>
