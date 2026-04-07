@@ -1,180 +1,112 @@
 'use client';
 
-import { useState, useRef, useEffect, useCallback } from 'react';
-import { createPortal } from 'react-dom';
+import { useState } from 'react';
 import Link from 'next/link';
-import { Check, Info, Github } from 'lucide-react';
+import { Check, Minus, Github } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { SpotlightCard } from '@/components/ui/spotlight-card';
+
+type FeatureValue = string | boolean;
 
 const plans = [
   {
     name: 'Free',
-    subtitle: '',
     monthlyPrice: 'Free',
     annualPrice: 'Free',
     period: 'forever',
     annualPeriod: 'forever',
-    documents: '25 documents/mo',
     description: 'Try Oreko cloud with no commitment.',
     cta: 'Get started',
     ctaHref: '/register',
     highlighted: false,
     features: [
-      '25 documents per month',
-      '1 user (owner only)',
-      'Quotes, invoices & contracts',
-      'E-signatures',
-      'Online payments',
-      'PDF generation',
-      'Managed hosting',
-      'Community support',
-    ],
+      { label: 'Documents', value: '25/month' },
+      { label: 'Team members', value: '1' },
+      { label: 'Core features', value: true },
+      { label: 'Cloud hosting', value: true },
+      { label: 'Auto-reminders', value: false },
+      { label: 'Recurring invoices', value: false },
+      { label: 'Advanced analytics', value: false },
+      { label: 'API access', value: false },
+      { label: 'Support', value: 'Community' },
+    ] as { label: string; value: FeatureValue }[],
   },
   {
     name: 'Pro',
-    subtitle: '',
     monthlyPrice: '$14',
     annualPrice: '$10',
     period: '/mo',
     annualPeriod: '/mo',
-    documents: '100 documents/mo',
     description: 'We handle the servers. You handle the business.',
     cta: 'Start free trial',
     ctaHref: '/register',
     highlighted: true,
     features: [
-      '100 documents per month',
-      '1 user (owner only)',
-      'Everything in Free',
-      'Auto-reminder emails',
-      'Custom domain',
-      'Automatic updates & backups',
-      'Stripe payments',
-      'SSL & uptime monitoring',
-      'Priority email support',
-    ],
+      { label: 'Documents', value: '100/month' },
+      { label: 'Team members', value: '1' },
+      { label: 'Core features', value: true },
+      { label: 'Cloud hosting', value: true },
+      { label: 'Auto-reminders', value: true },
+      { label: 'Backups & SSL', value: true },
+      { label: 'Recurring invoices', value: false },
+      { label: 'Advanced analytics', value: false },
+      { label: 'API access', value: false },
+      { label: 'Support', value: 'Priority email' },
+    ] as { label: string; value: FeatureValue }[],
   },
   {
     name: 'Business',
-    subtitle: '',
     monthlyPrice: '$29',
     annualPrice: '$24',
     period: '/mo',
     annualPeriod: '/mo',
-    documents: '250 documents/mo',
     description: 'For growing teams that need collaboration.',
     cta: 'Start free trial',
     ctaHref: '/register',
     highlighted: false,
     features: [
-      '250 documents per month',
-      'Up to 5 team members',
-      'Everything in Pro',
-      'Recurring invoices',
-      'Role-based permissions',
-      'Advanced analytics & reports',
-      'API access',
-      'Contract templates library',
-      'Dedicated support',
-    ],
+      { label: 'Documents', value: '250/month' },
+      { label: 'Team members', value: 'Up to 5' },
+      { label: 'Core features', value: true },
+      { label: 'Cloud hosting', value: true },
+      { label: 'Auto-reminders', value: true },
+      { label: 'Backups & SSL', value: true },
+      { label: 'Recurring invoices', value: true },
+      { label: 'Advanced analytics', value: true },
+      { label: 'API access', value: true },
+      { label: 'Support', value: 'Dedicated' },
+    ] as { label: string; value: FeatureValue }[],
   },
   {
     name: 'Enterprise',
-    subtitle: '',
     monthlyPrice: 'Custom',
     annualPrice: 'Custom',
     period: '',
     annualPeriod: '',
-    documents: 'Unlimited documents',
     description: 'For teams that need more volume and control.',
     cta: 'Contact sales',
     ctaHref: '/contact',
     highlighted: false,
     features: [
-      'Unlimited documents',
-      'Unlimited team members',
-      'Everything in Business',
-      'Priority onboarding',
-      'Custom integrations',
-      'Data migration assistance',
-      'Custom invoice design',
-      'SLA with uptime guarantee',
-      'Dedicated account manager',
-    ],
+      { label: 'Documents', value: 'Unlimited' },
+      { label: 'Team members', value: 'Unlimited' },
+      { label: 'Core features', value: true },
+      { label: 'Cloud hosting', value: true },
+      { label: 'Auto-reminders', value: true },
+      { label: 'Backups & SSL', value: true },
+      { label: 'Recurring invoices', value: true },
+      { label: 'Advanced analytics', value: true },
+      { label: 'API access', value: true },
+      { label: 'Custom integrations', value: true },
+      { label: 'Support', value: 'Dedicated manager' },
+    ] as { label: string; value: FeatureValue }[],
   },
 ];
 
-function DocumentTooltip() {
-  const [show, setShow] = useState(false);
-  const [pos, setPos] = useState<{ top: number; left: number } | null>(null);
-  const buttonRef = useRef<HTMLButtonElement>(null);
-  const tooltipRef = useRef<HTMLDivElement>(null);
-
-  const updatePos = useCallback(() => {
-    if (!buttonRef.current) return;
-    const rect = buttonRef.current.getBoundingClientRect();
-    const tooltipWidth = 220;
-    let left = rect.left + rect.width / 2 - tooltipWidth / 2;
-    left = Math.max(8, Math.min(left, window.innerWidth - tooltipWidth - 8));
-    setPos({ top: rect.top - 10, left });
-  }, []);
-
-  useEffect(() => {
-    if (!show) return;
-    const handleClickOutside = (e: MouseEvent) => {
-      if (
-        buttonRef.current && !buttonRef.current.contains(e.target as Node) &&
-        tooltipRef.current && !tooltipRef.current.contains(e.target as Node)
-      ) {
-        setShow(false);
-      }
-    };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [show]);
-
-  const handleClick = () => {
-    if (!show) updatePos();
-    setShow(prev => !prev);
-  };
-
-  return (
-    <span className="relative inline-flex">
-      <button
-        ref={buttonRef}
-        onClick={handleClick}
-        className="ml-1.5 text-muted-foreground hover:text-foreground transition-colors"
-        aria-label="What counts as a document?"
-        type="button"
-      >
-        <Info className="h-3.5 w-3.5" />
-      </button>
-      {show && pos && createPortal(
-        <div
-          ref={tooltipRef}
-          style={{
-            position: 'fixed',
-            top: pos.top,
-            left: pos.left,
-            transform: 'translateY(-100%)',
-            zIndex: 99999,
-            width: 220,
-          }}
-          className="rounded-lg border border-border bg-background p-3 shadow-lg text-xs text-muted-foreground leading-relaxed"
-        >
-          <p>
-            <span className="font-medium text-foreground">
-              Documents = invoices + quotes + contracts
-            </span>{' '}
-            combined. Each one you create counts as 1 document. Drafts count
-            once saved. Resets every billing cycle.
-          </p>
-        </div>,
-        document.body
-      )}
-    </span>
-  );
+function FeatureVal({ value }: { value: FeatureValue }) {
+  if (value === true) return <Check className="h-4 w-4 text-primary" />;
+  if (value === false) return <Minus className="h-4 w-4 text-muted-foreground/30" />;
+  return <span className="text-sm font-medium text-foreground">{value}</span>;
 }
 
 export function PricingSection() {
@@ -261,11 +193,6 @@ export function PricingSection() {
                 <h3 className={`font-display font-medium text-foreground ${plan.highlighted ? 'text-xl' : 'text-lg'}`}>
                   {plan.name}
                 </h3>
-                {plan.subtitle && (
-                  <p className="text-xs text-muted-foreground mt-0.5">
-                    {plan.subtitle}
-                  </p>
-                )}
 
                 <div className="mt-4 flex items-baseline gap-1">
                   <span className="text-3xl font-display font-medium text-foreground">
@@ -276,13 +203,7 @@ export function PricingSection() {
                   </span>
                 </div>
 
-                {/* Document pool badge */}
-                <div className="mt-3 inline-flex items-center text-xs font-medium text-foreground bg-muted px-2.5 py-1 rounded-md">
-                  {plan.documents}
-                  <DocumentTooltip />
-                </div>
-
-                <p className="mt-3 text-sm text-muted-foreground">
+                <p className="mt-2 text-sm text-muted-foreground">
                   {plan.description}
                 </p>
 
@@ -297,17 +218,17 @@ export function PricingSection() {
                   {plan.cta}
                 </Link>
 
-                <ul className="mt-6 space-y-2.5">
+                <div className="mt-6 border-t border-border pt-5 space-y-3">
                   {plan.features.map((feature, fi) => (
-                    <li
+                    <div
                       key={`${plan.name}-${fi}`}
-                      className="flex items-start gap-2.5 text-sm text-muted-foreground"
+                      className="flex items-center justify-between text-sm"
                     >
-                      <Check className="h-3.5 w-3.5 text-primary mt-0.5 shrink-0" />
-                      {feature}
-                    </li>
+                      <span className="text-muted-foreground">{feature.label}</span>
+                      <FeatureVal value={feature.value} />
+                    </div>
                   ))}
-                </ul>
+                </div>
               </SpotlightCard>
             </motion.div>
           ))}
