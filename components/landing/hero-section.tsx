@@ -96,8 +96,8 @@ export function HeroSection() {
           transition={{ duration: 0.6, delay: 0.4, ease: 'easeOut' }}
         >
           <Image
-            src="/screenshots/quote-detail.png"
-            alt="Oreko quote editor with line items, totals, and live preview"
+            src="/screenshots/invoice-detail.png"
+            alt="Oreko invoice detail with line items, totals, and download option"
             width={1280}
             height={800}
             className="w-full h-auto"
