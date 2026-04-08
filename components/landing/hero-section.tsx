@@ -1,13 +1,32 @@
 'use client';
 
+import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { Github, ArrowRight } from 'lucide-react';
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 import Image from 'next/image';
 import { FlipWords } from '@/components/ui/flip-words';
 import { TextShimmer } from '@/components/ui/text-shimmer';
 
+const heroScreenshots = [
+  { src: '/screenshots/quote-detail.png', alt: 'Oreko quote builder with line items, totals, and live preview' },
+  { src: '/screenshots/invoices.png', alt: 'Oreko invoices list with payment status tracking' },
+  { src: '/screenshots/invoice-new.png', alt: 'Oreko new invoice creation form' },
+  { src: '/screenshots/contracts.png', alt: 'Oreko contracts management with status badges' },
+];
+
 export function HeroSection() {
+  const [current, setCurrent] = useState(0);
+
+  const next = useCallback(() => {
+    setCurrent((prev) => (prev + 1) % heroScreenshots.length);
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(next, 4000);
+    return () => clearInterval(timer);
+  }, [next]);
+
   return (
     <section className="relative bg-transparent pt-24 pb-16 overflow-hidden">
       <div className="relative z-10 max-w-6xl mx-auto px-6">
@@ -88,21 +107,49 @@ export function HeroSection() {
           </Link>
         </motion.div>
 
-        {/* Product Screenshot */}
+        {/* Product Screenshot Carousel */}
         <motion.div
-          className="mt-16 rounded-xl border border-border shadow-xl overflow-hidden bg-card transition-shadow duration-500 hover:shadow-2xl"
+          className="mt-16"
           initial={{ opacity: 0, y: 32 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4, ease: 'easeOut' }}
         >
-          <Image
-            src="/screenshots/invoice-detail.png"
-            alt="Oreko invoice detail with line items, totals, and download option"
-            width={1280}
-            height={800}
-            className="w-full h-auto"
-            priority
-          />
+          <div className="relative rounded-xl border border-border shadow-xl overflow-hidden bg-card transition-shadow duration-500 hover:shadow-2xl">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={current}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5, ease: 'easeInOut' }}
+              >
+                <Image
+                  src={heroScreenshots[current].src}
+                  alt={heroScreenshots[current].alt}
+                  width={1280}
+                  height={800}
+                  className="w-full h-auto"
+                  priority={current === 0}
+                />
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          {/* Dots */}
+          <div className="flex justify-center gap-2 mt-4">
+            {heroScreenshots.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrent(i)}
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  i === current
+                    ? 'w-6 bg-primary'
+                    : 'w-1.5 bg-muted-foreground/30 hover:bg-muted-foreground/50'
+                }`}
+                aria-label={`Show screenshot ${i + 1}`}
+              />
+            ))}
+          </div>
         </motion.div>
       </div>
     </section>
